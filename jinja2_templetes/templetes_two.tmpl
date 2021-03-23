@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="format-detection" content="telephone=no">
+<meta name="keywords" content="">
+<script>
+	if ((navigator.userAgent.indexOf('iPhone') > 0) || navigator.userAgent.indexOf('iPod') > 0 || navigator.userAgent.indexOf('Android') > 0) {
+		document.write('<meta name="viewport" content="width=device-width, maximum-scale=1">');
+	}else{
+		document.write('<meta name="viewport" content="width=1024, maximum-scale=1">');
+	}
+</script>
+
+<link rel="stylesheet" href="../css/style.css">
+<body>
+    <h2 class="box_title">{{title}}</h2>
+    <div class="box_scale">
+        <div class="scale_label">
+            <p class="label_id">ID</p>
+            <p class="label_one">{{label[0]}}</p>
+            <p class="label_two">{{label[1]}}</p>
+        </div>
+        {%- for mat in item %}
+            <div class="scale_row">
+                <p class="row_double_n">{{mat['ID']}}</p>
+                <p class="row_double_o">{{mat['ANSER_ONE']}}</p>
+                <p class="row_double_tw">{{mat['ANSER_TWO']}}</p>
+            </div>
+        {%- endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="format-detection" content="telephone=no">
+<meta name="keywords" content="">
+<script>
+	if ((navigator.userAgent.indexOf('iPhone') > 0) || navigator.userAgent.indexOf('iPod') > 0 || navigator.userAgent.indexOf('Android') > 0) {
+		document.write('<meta name="viewport" content="width=device-width, maximum-scale=1">');
+	}else{
+		document.write('<meta name="viewport" content="width=1024, maximum-scale=1">');
+	}
+</script>
+
+<link rel="stylesheet" href="../css/style.css">
+<body>
+    <h2 class="box_title">{{title}}</h2>
+    <div class="proffesion_mode">
+        <div class="mode_label">
+            <p class="label_case">選択肢</p>
+            <p class="label_case">実数</p>
+            <p class="label_case">割合（％）</p>
+        </div>
+        {%- for mat in item %}
+            <div class="mode_row">
+                <p class="row_case">{{mat['LABEL']}}</p>
+                <p class="row_case">{{mat['ANSER_ONE']}}</p>
+                <p class="row_case">{{mat['ANSER_TWO']}}</p>
+            </div>
+        {%- endfor %}
+    </div>
+</body>
+</html>

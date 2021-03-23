@@ -1,0 +1,230 @@
+.horizon_sb{/*均等配置、両端ぴったり、横の長さの限界を超えたら２段目に配置する*/
+	@extend .df;
+	@extend .jc_sb;
+	@extend .f_w;
+	@include break-point(pc){
+		.col1{
+			  width : 10%;
+		}
+		.col2{
+			  width : 20%;
+		}
+		.col3{
+			  width : 30%;
+		}
+		.col_3{
+			width : 33.33333% ; /* 未対応ブラウザ用フォールバック */
+			width : -webkit-calc(100% / 3) ;
+			width : calc(100% / 3) ;
+	  	}
+		.col4{
+			  width : 40%;
+		}
+		.col5{
+			  width : 50%;
+		}
+		.col6{
+			  width : 60%;
+		}
+		.col_6{
+			width : 16.66666%; /* 未対応ブラウザ用フォールバック */
+			width : -webkit-calc(100% / 6);
+			width : calc(100% / 6);
+	  	}
+		.col7{
+			  width : 70%;
+		}
+		.col8{
+			  width : 80%;
+		}
+		.col9{
+			  width : 90%;
+		}
+		.col10{
+			  width : 100%;
+		}
+	}
+	@include break-point(sp){
+		.sp_col1{
+			  width : 10%;
+		}
+		.sp_col2{
+			  width : 20%;
+		}
+		.sp_col3{
+			  width : 30%;
+		}
+		.sp_col_3{
+			width : 33.33333% ; /* 未対応ブラウザ用フォールバック */
+			width : -webkit-calc(100% / 3) ;
+			width : calc(100% / 3) ;
+	  	}
+		.sp_col4{
+			  width : 40%;
+		}
+		.sp_col5{
+			  width : 50%;
+		}
+		.sp_col6{
+			  width : 60%;
+		}
+		.sp_col_6{
+			width : 16.66666%; /* 未対応ブラウザ用フォールバック */
+			width : -webkit-calc(100% / 6);
+			width : calc(100% / 6);
+	  	}
+		.sp_col7{
+			  width : 70%;
+		}
+		.sp_col8{
+			  width : 80%;
+		}
+		.sp_col9{
+			  width : 90%;
+		}
+		.sp_col10{
+			  width : 100%;
+		}
+	}
+}
+.horizon_sa{/*均等配置、両端ぴったり、横の長さの限界を超えたら２段目に配置する*/
+	@extend .df;
+	@extend .jc_sa;
+	@extend .f_w;
+	@include break-point(pc){
+		.col1{
+			  width : 10%;
+		}
+		.col2{
+			  width : 20%;
+		}
+		.col3{
+			  width : 30%;
+		}
+		.col_3{
+			width : 33.33333% ; /* 未対応ブラウザ用フォールバック */
+			width : -webkit-calc(100% / 3) ;
+			width : calc(100% / 3) ;
+	  	}
+		.col4{
+			  width : 40%;
+		}
+		.col5{
+			  width : 50%;
+		}
+		.col6{
+			  width : 60%;
+		}
+		.col_6{
+			width : 16.66666%; /* 未対応ブラウザ用フォールバック */
+			width : -webkit-calc(100% / 6);
+			width : calc(100% / 6);
+	  	}
+		.col7{
+			  width : 70%;
+		}
+		.col8{
+			  width : 80%;
+		}
+		.col9{
+			  width : 90%;
+		}
+		.col10{
+			  width : 100%;
+		}
+	}
+	@include break-point(sp){
+		.sp_col1{
+			  width : 10%;
+		}
+		.sp_col2{
+			  width : 20%;
+		}
+		.sp_col3{
+			  width : 30%;
+		}
+		.sp_col_3{
+			width : 33.33333% ; /* 未対応ブラウザ用フォールバック */
+			width : -webkit-calc(100% / 3) ;
+			width : calc(100% / 3) ;
+	  	}
+		.sp_col4{
+			  width : 40%;
+		}
+		.sp_col5{
+			  width : 50%;
+		}
+		.sp_col6{
+			  width : 60%;
+		}
+		.sp_col_6{
+			width : 16.66666%; /* 未対応ブラウザ用フォールバック */
+			width : -webkit-calc(100% / 6);
+			width : calc(100% / 6);
+	  	}
+		.sp_col7{
+			  width : 70%;
+		}
+		.sp_col8{
+			  width : 80%;
+		}
+		.sp_col9{
+			  width : 90%;
+		}
+		.sp_col10{
+			  width : 100%;
+		}
+	}
+}
+.horizon2{/*均等配置、両端ぴったり、折り返しなし*/
+	@extend .df;
+	@extend .jc_sb;
+	@include break-point(pc){
+		.col_1{
+			  width : 100%;
+		}
+		.col_2{
+			  width : 50%;
+		}
+		.col_3{
+			width : 33.33333%; /* 未対応ブラウザ用フォールバック */
+			width : -webkit-calc(100% / 3);
+			width : calc(100% / 3);
+	  	}
+		.col_4{
+			  width : 25%;
+		}
+		.col_5{
+			  width : 20%;
+		}
+		.col_6{
+			width : 16.66666%; /* 未対応ブラウザ用フォールバック */
+			width : -webkit-calc(100% / 6);
+			width : calc(100% / 6);
+	  	}
+	}
+	@include break-point(sp){
+		.sp_col_1{
+			  width : 100%;
+		}
+		.sp_col_2{
+			  width : 50%;
+		}
+		.sp_col_3{
+			width : 33.33333%; /* 未対応ブラウザ用フォールバック */
+			width : -webkit-calc(100% / 3);
+			width : calc(100% / 3);
+	  	}
+		.sp_col_4{
+			  width : 25%;
+		}
+		.sp_col_5{
+			  width : 20%;
+		}
+		.sp_col_6{
+			width : 16.66666%; /* 未対応ブラウザ用フォールバック */
+			width : -webkit-calc(100% / 6);
+			width : calc(100% / 6);
+	  	}
+	}
+}

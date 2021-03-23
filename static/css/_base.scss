@@ -1,0 +1,466 @@
+/*------------------------------------------デフォルト設定（2020.02.10 edited）---------------------------------------------------*/
+/* 印刷用設定（適用できていないようなら削除。「規定」サイズがここで設定された数値になるっぽい） */
+@media print{
+    body {
+        zoom: 0.68;/* この数値以上がいわゆる「PCサイズ」表示。 */
+        -webkit-print-color-adjust: exact;
+    }
+}
+/* IE10以上 */
+@media print and (-ms-high-contrast: none){
+    @page{
+        size: A4;
+        margin: 12.7mm 9.7mm;
+    }
+    body{
+        zoom: 1.8;
+        width: 1200px;
+        transform: scale(0.5);
+        transform-origin: 0 0;
+    }
+}
+/*20200131作成新メディアクエリ案（パイロット版）*/
+@mixin break-point($point){
+	@if $point == desktop{
+		@media only screen and (min-width: 1200px){
+			@content;
+		}
+	}
+	@else if $point == pc{
+		@media only screen and (min-width: 834px){
+			@content;
+		}
+	}
+	@else if $point == ipad{
+		@media only screen and (min-device-width: 768px) and (max-device-width: 1024px){
+			@content;
+		}
+	}
+	@else if $point == xs{
+		@media only screen and (max-width: 896px) and (orientation: landscape){
+			@content;
+		}
+	}
+	@else if $point == sp{
+		@media only screen and (max-width: 833px){
+			@content;
+		}
+	}
+	@else if $point == ip_h{
+		@media only screen and (max-width: 414px){
+			@content;
+		}
+	}
+	@else if $point == ip_m{
+		@media only screen and (max-width: 375px){
+			@content;
+		}
+	}
+	@else if $point == android{
+		@media only screen and (max-width: 360px){
+			@content;
+		}
+	}
+	@else if $point == ip_r{
+		@media only screen and (max-width: 320px){
+			@content;
+		}
+	}
+}
+
+/*フォント*/
+$maru-font: "ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro,Lucida Grande, segoe UI, ヒラギノ丸ゴ ProN W4", "Hiragino Maru Gothic ProN", Meiryo, Arial, sans-serif;
+$goth-font: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+$hiragino-goth-w3: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','ヒラギノ角ゴ ProN W3','Hiragino Kaku Gothic ProN','HiraKakuProN-W3';
+$hiragino-goth-w6: 'ヒラギノ角ゴ Pro W6','HiraKakuPro-W6','ヒラギノ角ゴ ProN W6','HiraKakuProN-W6';
+$minchou-font: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:100,300,400,500,700,900|Noto+Serif+JP:300,400,500,700,900');//2019.04.05
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:100,300,400,500,700,800,900&display=swap');//2020.02.07
+//sans-serif=ゴシック系　serif=明朝系　cursive=筆記体・草書体　fantasy=装飾的　monospace=等幅フォント
+$noto-sans: 'Noto Sans JP', sans-serif;
+$noto-serif: 'Noto Serif Japanese', serif;
+$new-maru-font: 'M PLUS Rounded 1c', sans-serif;
+/*base*/
+*{
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+	font-size: 15px;
+	font-family: $noto-sans;
+	line-height: 1;
+}
+
+a{
+	text-decoration: none;
+}
+
+li{
+	list-style: none;
+}
+
+img{
+	width: 100%;
+	height: auto;
+	vertical-align: bottom;
+}
+
+hr{
+	border: none;
+}
+
+table{
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+input{
+	-webkit-appearance: none;
+	appearance: none;
+	outline: none;
+}
+
+input::placeholder{
+	color: rgba(71,74,77,0.4);
+}
+
+textarea{
+	resize: none;
+}
+
+iframe{
+	border: none;
+}
+
+.pc_actualized{
+	@include break-point(pc){
+		display: block;
+	}
+	@include break-point(sp){
+		display: none;
+	}
+}
+
+.sp_actualized{
+	@include break-point(pc){
+		display: none;
+	}
+	@include break-point(sp){
+		display: block;
+	}
+}
+
+.box_title{
+	display: block;
+	font-size: 18px;
+	text-align: center;
+	line-height: 1.5;
+}
+.box_scale{
+	width: 1000px;
+	border: 2px solid #000;
+	margin: 0 auto;
+	&.short{
+		width: 304px;
+	}
+	&.middle{
+		width: 700px;
+	}
+	.scale_row{
+		@extend .df;
+		border-bottom: 2px solid #000;
+		&:last-child{
+			border-bottom: none;
+		}
+		.row_numbers{
+			max-width: 30px;
+			width: 100%;
+			line-height: 1.5;
+			text-align: center;
+			padding: 3px 0;
+			border-right: 2px solid #000;
+		}
+		.row_text{
+			line-height: 1.5;
+			text-align: justify;
+			padding: 3px;
+		}
+		.row_double_n{
+			width: 70px;
+			line-height: 1.5;
+			padding: 3px;
+			border-right: 2px solid #000;
+		}
+		.row_double_o{
+			width: 200px;
+			line-height: 1.5;
+			padding: 3px;
+			border-right: 2px solid #000;
+		}
+		.row_double_tw{
+			width: 726px;
+			line-height: 1.5;
+			padding: 3px;
+		}
+		.row_double_th{
+			width: 556px;
+			line-height: 1.5;
+			padding: 3px;
+			border-right: 2px solid #000;
+		}
+		.row_double_fo{
+			width: 370px;
+			line-height: 1.5;
+			padding: 3px;
+		}
+		.row_long{
+			width: 796px;
+			line-height: 1.5;
+			padding: 3px;
+			text-align: center;
+			border-right: 2px solid #000;
+		}
+		.row_short{
+			width: 100px;
+			line-height: 1.5;
+			padding: 3px;
+			text-align: center;
+			border-right: 2px solid #000;
+			&:nth-child(n+3){
+				border-right: none;
+			}
+		}
+	}
+	.scale_label{
+		@extend .df;
+		width: 100%;
+		border-bottom: 2px solid #000;
+		.label_id{
+			width: 70px;
+			line-height: 1.5;
+			padding: 3px;
+			text-align: center;
+			border-right: 2px solid #000;
+		}
+		.label_one{
+			width: 200px;
+			line-height: 1.5;
+			padding: 3px;
+			text-align: center;
+			border-right: 2px solid #000;
+		}
+		.label_two{
+			width: 726px;
+			line-height: 1.5;
+			padding: 3px;
+			text-align: center;
+		}
+		.label_three{
+			width: 556px;
+			line-height: 1.5;
+			padding: 3px;
+			text-align: center;
+			border-right: 2px solid #000;
+		}
+		.label_four{
+			width: 370px;
+			line-height: 1.5;
+			padding: 3px;
+			text-align: center;
+		}
+		.label_longer{
+			width: 796px;
+			line-height: 1.5;
+			padding: 3px;
+			text-align: center;
+			border-right: 2px solid #000;
+		}
+		.label_short{
+			width: 100px;
+			line-height: 1.5;
+			padding: 3px;
+			text-align: center;
+			border-right: 2px solid #000;
+			&:nth-child(n+3){
+				border-right: none;
+			}
+		}
+	}
+}
+//職業配置
+.proffesion_mode{
+	width: 800px;
+	border: 2px solid #000;
+	margin: 10px auto 0;
+	.mode_label{
+		@extend .df;
+		.label_case{
+			font-size: 14px;
+			font-weight: bold;
+			line-height: 1.5;
+			text-align: center;
+			&:first-child{
+				width: 500px;
+				border-right: 2px solid #000; 
+				border-bottom: 2px solid #000; 
+			}
+			&:nth-child(2){
+				width: 148px;
+				border-right: 2px solid #000; 
+				border-bottom: 2px solid #000; 
+			}
+			&:last-child{
+				width: 148px;
+				border-bottom: 2px solid #000; 
+			}
+		}
+	}
+	.mode_row{
+		@extend .df;
+		border-bottom: 2px solid #000;
+		&:last-child{
+			border-bottom: none;
+		}
+		.row_case{
+			font-size: 14px;
+			line-height: 1.5;
+			padding: 0 5px;
+			&:first-child{
+				width: 500px;
+				border-right: 2px solid #000; 
+			}
+			&:nth-child(2){
+				width: 148px;
+				text-align: right;
+				border-right: 2px solid #000; 
+			}
+			&:last-child{
+				width: 148px;
+				text-align: right;
+			}
+		}
+	}
+}
+//マツダファンブック
+.box_scales{
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+	.scales_set{
+		&:nth-child(n+2){
+			margin: 50px auto 0;
+		}
+		.set_title{
+			line-height: 1.5;
+		}
+		.set_data{
+			border: 2px solid #000;
+			margin: 15px auto 0;
+			.data_label{
+				@extend .df;
+				border-bottom: 2px solid #000;
+				.label_id{
+					max-width: 80px;
+					width: 100%;
+					line-height: 1.5;
+					text-align: center;
+					border-right: 2px solid #000;
+				}
+				.label_permit{
+					max-width: 100px;
+					width: 100%;
+					line-height: 1.5;
+					text-align: center;
+					border-right: 2px solid #000;
+				}
+				.label_text{
+					width: 100%;
+					line-height: 1.5;
+					text-align: center;
+				}
+			}
+			.data_case{
+				@extend .df;
+				&:not(:last-child){
+					border-bottom: 2px solid #000;
+				}
+				.case_id{
+					max-width: 80px;
+					width: 100%;
+					line-height: 1.5;
+					padding: 0 5px;
+					text-align: center;
+					border-right: 2px solid #000;
+				}
+				.case_permit{
+					max-width: 100px;
+					width: 100%;
+					line-height: 1.5;
+					padding: 0 5px;
+					text-align: center;
+					border-right: 2px solid #000;
+				}
+				.case_text{
+					line-height: 1.5;
+					padding: 0 5px;
+				}
+			}
+		}
+	}
+}
+// 掲載許可（２枠）
+.allow_scale_two{
+	width: 100%;
+	max-width: 800px;
+	border: 2px solid #000;
+	margin: 20px auto 0;
+	.act_label{
+		@extend .df;
+		border-bottom: 2px solid #000;
+		.label_id,.label_permit,.label_one,.label_two{
+			width: 100%;
+			line-height: 1.5;
+			text-align: center;
+			padding: 0 3px;
+		}
+		.label_id{
+			max-width: 50px;
+			border-right: 2px solid #000;
+		}
+		.label_permit{
+			max-width: 90px;
+			border-right: 2px solid #000;
+		}
+		.label_one{
+			max-width: 150px;
+			border-right: 2px solid #000;
+		}
+	}
+	.act_row{
+		@extend .df;
+		&:not(:last-child){
+			border-bottom: 2px solid #000;
+		}
+		.row_id,.row_permit,.row_one,.row_two{
+			width: 100%;
+			line-height: 1.5;
+			padding: 0 3px;
+		}
+		.row_id{
+			max-width: 50px;
+			border-right: 2px solid #000;
+		}
+		.row_permit{
+			max-width: 90px;
+			text-align: center;
+			border-right: 2px solid #000;
+		}
+		.row_one{
+			max-width: 150px;
+			border-right: 2px solid #000;
+		}
+	}
+}

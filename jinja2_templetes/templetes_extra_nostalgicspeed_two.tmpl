@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="format-detection" content="telephone=no">
+<meta name="keywords" content="">
+<script>
+	if ((navigator.userAgent.indexOf('iPhone') > 0) || navigator.userAgent.indexOf('iPod') > 0 || navigator.userAgent.indexOf('Android') > 0) {
+		document.write('<meta name="viewport" content="width=device-width, maximum-scale=1">');
+	}else{
+		document.write('<meta name="viewport" content="width=1024, maximum-scale=1">');
+	}
+</script>
+
+<link rel="stylesheet" href="../css/style.css">
+<body>
+    <h2 class="box_title">{{title}}</h2>
+    <div class="allow_scale_two">
+        <div class="act_label">
+            <p class="label_id">ID</p>
+            <p class="label_permit">掲載許可</p>
+            <p class="label_one">{{sub_label[0]}}</p>
+            <p class="label_two">{{sub_label[1]}}</p>
+        </div>
+        {%- for mat in item %}
+            <div class="act_row">
+                <p class="row_id">{{mat['ID']}}</p>
+                {%- if mat['PERMIT'] == 0 %}
+                    <p class="row_permit">◯</p>
+                {%- else %}
+                    <p class="row_permit">☓</p>
+                {%- endif %}
+                <p class="row_one">{{mat['ANS_ONE']}}</p>
+                <p class="row_two">{{mat['ANS_TWO']}}</p>
+            </div>
+        {%- endfor %}
+    </div>
+</body>
+</html>

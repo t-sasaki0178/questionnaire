@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="format-detection" content="telephone=no">
+<meta name="keywords" content="">
+<script>
+	if ((navigator.userAgent.indexOf('iPhone') > 0) || navigator.userAgent.indexOf('iPod') > 0 || navigator.userAgent.indexOf('Android') > 0) {
+		document.write('<meta name="viewport" content="width=device-width, maximum-scale=1">');
+	}else{
+		document.write('<meta name="viewport" content="width=1024, maximum-scale=1">');
+	}
+</script>
+
+<link rel="stylesheet" href="../css/style.css">
+<body>
+    <div class="box_scales">
+        <div class="scales_set">
+            <h3 class="set_title">{{title}}</h3>
+            <div class="set_data">
+                <div class="data_label">
+                    <p class="label_id">ID</p>
+                    <p class="label_permit">掲載許可</p>
+                    <p class="label_text">回答</p>
+                </div>
+                {%- for mat in item %}
+                    <div class="data_case">
+                        <p class="case_id">{{mat['ID']}}</p>
+                        {%- if mat['PERMIT'] == 1 %}
+                            <p class="case_permit">☓</p>
+                        {%- else %}
+                            <p class="case_permit">◯</p>
+                        {%- endif %}
+                        <p class="case_text">{{mat['VALUE']}}</p>
+                    </div>
+                {%- endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,394 @@
+/*----------------------------------------utility----------------------------------------------*/
+/*flex系*/
+.df{
+	display: -ms-flexbox; /* IE10 */
+	display: -webkit-box; /* Android4.3以下、Safari3.1〜6.0 */
+	display: -webkit-flex; /* Safari6.1以降 */
+	display: flex;
+}
+.dif{
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+}
+.jc_sb{
+	-ms-flex-pack: justify; /*IE10*/
+	-webkit-box-pack: justify; /* Android4.3以下、Safari3.1〜6.0 */
+	-webkit-justify-content: space-between; /* Safari6.1以降 */
+	justify-content: space-between;
+}
+.jc_sa{
+	-webkit-justify-content: space-around;
+	-ms-flex-pack: distribute;
+	justify-content: space-around;
+}
+.jc_c{
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+.jc_fs{
+	-webkit-box-pack: start;
+	-webkit-justify-content: flex-start;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
+}
+.jc_fe{
+	-webkit-justify-content: flex-end;
+	-ms-justify-content: flex-end;
+	justify-content: flex-end;
+}
+.ai_c{
+	-ms-flex-align: center; /*IE10*/
+	-webkit-box-align: center; /* Android4.3以下、Safari3.1〜6.0 */
+	-webkit-align-items: center; /* Safari6.1以降 */
+	align-items: center;
+}
+.ai_b{
+	-webkit-box-align: baseline;
+	-webkit-align-items: baseline;
+	-ms-flex-align: baseline;
+	align-items: baseline;
+}
+.f_w{
+	-webkit-box-lines:multiple;
+	-moz-box-lines:multiple;
+	-webkit-flex-wrap:wrap;
+	-moz-flex-wrap:wrap;
+	-ms-flex-wrap:wrap;
+	flex-wrap:wrap;
+}
+
+.f_r{
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: reverse;
+	-ms-flex-direction: row-reverse;
+	flex-direction: row-reverse;
+}
+
+/*メディアクエリ（改定案）対応型*/
+@mixin break-point($point){
+	@if $point == pc{
+		@media only screen and (min-width: 834px){
+			@content;
+		}
+	}
+	@else if $point == ipad{
+		@media only screen and (min-device-width: 768px) and (max-device-width: 1024px){
+			@content;
+		}
+	}
+	@else if $point == xs{
+		@media only screen and (max-width: 896px) and (orientation: landscape){
+			@content;
+		}
+	}
+	@if $point == sp{
+		@media only screen and (max-width: 833px){
+			@content;
+		}
+	}
+	@else if $point == iphone-high{
+		@media only screen and (max-width: 414px){
+			@content;
+		}
+	}
+	@else if $point == iphone-middle{
+		@media only screen and (max-width: 375px){
+			@content;
+		}
+	}
+	@else if $point == android{
+		@media only screen and (max-width: 360px){
+			@content;
+		}
+	}
+	@else if $point == iphone-row{
+		@media only screen and (max-width: 320px){
+			@content;
+		}
+	}
+}
+
+.df_pc{//PC版のみ
+	@include break-point(pc){
+		display: -ms-flexbox; /* IE10 */
+		display: -webkit-box; /* Android4.3以下、Safari3.1〜6.0 */
+		display: -webkit-flex; /* Safari6.1以降 */
+		display: flex;
+	}
+}
+.df_sp{//SP版のみ
+	@include break-point(sp){
+		display: -ms-flexbox; /* IE10 */
+		display: -webkit-box; /* Android4.3以下、Safari3.1〜6.0 */
+		display: -webkit-flex; /* Safari6.1以降 */
+		display: flex;
+	}
+}
+
+.jc_sb_pc{
+	@include break-point(pc){
+		-ms-flex-pack: justify; /*IE10*/
+		-webkit-box-pack: justify; /* Android4.3以下、Safari3.1〜6.0 */
+		-webkit-justify-content: space-between; /* Safari6.1以降 */
+		justify-content: space-between;
+	}
+}
+.jc_sb_sp{
+	@include break-point(sp){
+		-ms-flex-pack: justify; /*IE10*/
+		-webkit-box-pack: justify; /* Android4.3以下、Safari3.1〜6.0 */
+		-webkit-justify-content: space-between; /* Safari6.1以降 */
+		justify-content: space-between;
+	}
+}
+
+.jc_sa_pc{
+	@include break-point(pc){
+		-webkit-justify-content: space-around;
+		-ms-flex-pack: distribute;
+		justify-content: space-around;
+	}
+}
+.jc_sa_sp{
+	@include break-point(sp){
+		-webkit-justify-content: space-around;
+		-ms-flex-pack: distribute;
+		justify-content: space-around;
+	}
+}
+
+.jc_c_pc{
+	@include break-point(pc){
+		-webkit-box-pack: center;
+		-webkit-justify-content: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+	}
+}
+.jc_c_sp{
+	@include break-point(sp){
+		-webkit-box-pack: center;
+		-webkit-justify-content: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+	}
+}
+
+.jc_fe_pc{
+	@include break-point(pc){
+		-webkit-box-pack: end;
+		-ms-flex-pack: end;
+		justify-content: flex-end;
+	}
+}
+.jc_fe_sp{
+	@include break-point(sp){
+		-webkit-box-pack: end;
+		-ms-flex-pack: end;
+		justify-content: flex-end;
+	}
+}
+
+.ai_c_pc{
+	@include break-point(pc){
+		-ms-flex-align: center; /*IE10*/
+		-webkit-box-align: center; /* Android4.3以下、Safari3.1〜6.0 */
+		-webkit-align-items: center; /* Safari6.1以降 */
+		align-items: center;
+	}
+}
+.ai_c_sp{
+	@include break-point(sp){
+		-ms-flex-align: center; /*IE10*/
+		-webkit-box-align: center; /* Android4.3以下、Safari3.1〜6.0 */
+		-webkit-align-items: center; /* Safari6.1以降 */
+		align-items: center;
+	}
+}
+
+.ai_bl_pc{
+	@include break-point(pc){
+		-webkit-box-align: baseline;
+		-ms-flex-align: baseline;
+		align-items: baseline;
+	}
+}
+.ai_bl_sp{
+	@include break-point(sp){
+		-webkit-box-align: baseline;
+		-ms-flex-align: baseline;
+		align-items: baseline;
+	}
+}
+
+.ai_fs_pc{
+	@include break-point(pc){
+		-webkit-box-align: start;
+		-ms-flex-align: start;
+		align-items: flex-start;
+	}
+}
+.ai_fs_sp{
+	@include break-point(sp){
+		-webkit-box-align: start;
+		-ms-flex-align: start;
+		align-items: flex-start;
+	}
+}
+
+.ai_fe_pc{
+	@include break-point(pc){
+		-webkit-box-align: end;
+		-ms-flex-align: end;
+		align-items: flex-end;
+	}
+}
+.ai_fe_sp{
+	@include break-point(sp){
+		-webkit-box-align: end;
+		-ms-flex-align: end;
+		align-items: flex-end;
+	}
+}
+
+.fw_w_pc{
+	@include break-point(pc){
+		-webkit-box-lines:multiple;
+		-moz-box-lines:multiple;
+		-webkit-flex-wrap:wrap;
+		-moz-flex-wrap:wrap;
+		-ms-flex-wrap:wrap;
+		flex-wrap:wrap;
+	}
+}
+.fw_w_sp{
+	@include break-point(sp){
+		-webkit-box-lines:multiple;
+		-moz-box-lines:multiple;
+		-webkit-flex-wrap:wrap;
+		-moz-flex-wrap:wrap;
+		-ms-flex-wrap:wrap;
+		flex-wrap:wrap;
+	}
+}
+
+.fd_rr_pc{
+	@include break-point(pc){
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: reverse;
+		-ms-flex-direction: row-reverse;
+		flex-direction: row-reverse;
+	}
+}
+.fd_rr_sp{
+	@include break-point(sp){
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: reverse;
+		-ms-flex-direction: row-reverse;
+		flex-direction: row-reverse;
+	}
+}
+
+.fd_col_pc{
+	@include break-point(pc){
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+    }
+}
+.fd_col_sp{
+	@include break-point(sp){
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+    }
+}
+
+/* 複合指定型（パイロット版） */
+.df_jcsb_pc{
+	@include break-point(pc){
+		display: -ms-flexbox; /* IE10 */
+		display: -webkit-box; /* Android4.3以下、Safari3.1〜6.0 */
+		display: -webkit-flex; /* Safari6.1以降 */
+		display: flex;
+		-ms-flex-pack: justify; /*IE10*/
+		-webkit-box-pack: justify; /* Android4.3以下、Safari3.1〜6.0 */
+		-webkit-justify-content: space-between; /* Safari6.1以降 */
+		justify-content: space-between;
+	}
+}
+.df_jcsb_sp{
+	@include break-point(sp){
+		display: -ms-flexbox; /* IE10 */
+		display: -webkit-box; /* Android4.3以下、Safari3.1〜6.0 */
+		display: -webkit-flex; /* Safari6.1以降 */
+		display: flex;
+		-ms-flex-pack: justify; /*IE10*/
+		-webkit-box-pack: justify; /* Android4.3以下、Safari3.1〜6.0 */
+		-webkit-justify-content: space-between; /* Safari6.1以降 */
+		justify-content: space-between;
+	}
+}
+
+.df_aic_pc{
+	@include break-point(pc){
+		display: -ms-flexbox; /* IE10 */
+		display: -webkit-box; /* Android4.3以下、Safari3.1〜6.0 */
+		display: -webkit-flex; /* Safari6.1以降 */
+		display: flex;
+		-ms-flex-align: center; /*IE10*/
+		-webkit-box-align: center; /* Android4.3以下、Safari3.1〜6.0 */
+		-webkit-align-items: center; /* Safari6.1以降 */
+		align-items: center;
+	}
+}
+.df_aic_sp{
+	@include break-point(sp){
+		display: -ms-flexbox; /* IE10 */
+		display: -webkit-box; /* Android4.3以下、Safari3.1〜6.0 */
+		display: -webkit-flex; /* Safari6.1以降 */
+		display: flex;
+		-ms-flex-align: center; /*IE10*/
+		-webkit-box-align: center; /* Android4.3以下、Safari3.1〜6.0 */
+		-webkit-align-items: center; /* Safari6.1以降 */
+		align-items: center;
+	}
+}
+
+.df_jcsb_aic_pc{
+	@include break-point(pc){
+		display: -ms-flexbox; /* IE10 */
+		display: -webkit-box; /* Android4.3以下、Safari3.1〜6.0 */
+		display: -webkit-flex; /* Safari6.1以降 */
+		display: flex;
+		-ms-flex-pack: justify; /*IE10*/
+		-webkit-box-pack: justify; /* Android4.3以下、Safari3.1〜6.0 */
+		-webkit-justify-content: space-between; /* Safari6.1以降 */
+		justify-content: space-between;
+		-ms-flex-align: center; /*IE10*/
+		-webkit-box-align: center; /* Android4.3以下、Safari3.1〜6.0 */
+		-webkit-align-items: center; /* Safari6.1以降 */
+		align-items: center;
+	}
+}
+.df_jcsb_aic_sp{
+	@include break-point(sp){
+		display: -ms-flexbox; /* IE10 */
+		display: -webkit-box; /* Android4.3以下、Safari3.1〜6.0 */
+		display: -webkit-flex; /* Safari6.1以降 */
+		display: flex;
+		-ms-flex-pack: justify; /*IE10*/
+		-webkit-box-pack: justify; /* Android4.3以下、Safari3.1〜6.0 */
+		-webkit-justify-content: space-between; /* Safari6.1以降 */
+		justify-content: space-between;
+		-ms-flex-align: center; /*IE10*/
+		-webkit-box-align: center; /* Android4.3以下、Safari3.1〜6.0 */
+		-webkit-align-items: center; /* Safari6.1以降 */
+		align-items: center;
+	}
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=no">
+        <script>
+            if ((navigator.userAgent.indexOf('iPhone') > 0) || navigator.userAgent.indexOf('iPod') > 0 || navigator.userAgent.indexOf('Android') > 0) {
+                document.write('<meta name="viewport" content="width=device-width, maximum-scale=1">');
+            }else{
+                document.write('<meta name="viewport" content="width=1024, maximum-scale=1">');
+            }
+		</script>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+        <a href="{{ url_for('static', filename='pp/template.pptx') }}" class="download_link" download>PPダウンロード</a>
+    </body>
+</html>

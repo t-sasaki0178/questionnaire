@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=no">
+        <script>
+            if ((navigator.userAgent.indexOf('iPhone') > 0) || navigator.userAgent.indexOf('iPod') > 0 || navigator.userAgent.indexOf('Android') > 0) {
+                document.write('<meta name="viewport" content="width=device-width, maximum-scale=1">');
+            }else{
+                document.write('<meta name="viewport" content="width=1024, maximum-scale=1">');
+            }
+		</script>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+        <p class="">アンケートの設問番号と問題タイプを入力してください</p>
+        <p class="">※rayout.csvを参考にしてください。PDFに出力しなくても良い問題については記入しなくて良いです。</p>
+        <p class="">ラジオボタンに記述回答がついている場合は別枠でカウントします。<br>（２択のラジオボタン（記述回答あり）の場合：ベース（グラフ・表）＋記述回答分の表（２択とも記述枠があるなら２枠分用意する））</p>
+        <p class="">設問番号の記入に気をつけてください。<br>（例：Q1、ラジオボタンの記述回答の場合、ベースの設問番号_記述回答の番号）</p>
+        <form method="post" id="questionnaire" action="./data_print" enctype="multipart/form-data">
+            <div class="q_output">
+                <div class="set">
+                    <p class="set_title">設問番号と問題タイプを選んでください</p>
+                    <label class="set_questions">
+                        <span class="">第</span>
+                        <input type="text" name="q_num" class="q_num" value="">
+                        <span class="">問</span>
+                    </label>
+                    <label class="set_type">
+                        <select name="q_select" class="q_select">
+                            <option value="singletext">記述問題（１枠・掲載許可なし）</option>
+                            <option value="doubletext">記述問題（２枠・掲載許可なし）</option>
+                            <option value="permit_singletext">記述問題（１枠・掲載許可あり）</option>
+                            <option value="permit_doubletext">記述問題（２枠・掲載許可あり）</option>
+                            <option value="radio">選択問題（ラジオボタン）</option>
+                            <option value="radio_plus_text">選択問題（ラジオボタン・記述回答付き）</option>
+                            <option value="checkbox">選択問題（チェックボックス）</option>
+                            <option value="matsuda">マツダファンブック固有処理</option>
+                            <option value="camion">カミオン固有処理</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <button type="button" class="btn_add" name="addbutton">フォームを追加</button>
+            <input type="file" name="uploads" id="files" value="" onchange="getFiles()" onclick="(e) => {e.target.value = ''; }" multiple style="display: none;">
+            <label class="getfiles" for="files">
+            	<span class="files_text">ファイルをアップロードする</span>
+            	<span class="files_status">X　layout.csv</span>
+            	<span class="files_status">X　labeldata.csv</span>
+            	<span class="files_status">X　rawdata.csv</span>
+            </label>
+            <button type="submit" class="btn_dec" name="decisionbutton">設定を確定する</button>
+        </form>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    </body>
+</html>

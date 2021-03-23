@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="format-detection" content="telephone=no">
+<meta name="keywords" content="">
+<script>
+	if ((navigator.userAgent.indexOf('iPhone') > 0) || navigator.userAgent.indexOf('iPod') > 0 || navigator.userAgent.indexOf('Android') > 0) {
+		document.write('<meta name="viewport" content="width=device-width, maximum-scale=1">');
+	}else{
+		document.write('<meta name="viewport" content="width=1024, maximum-scale=1">');
+	}
+</script>
+
+<link rel="stylesheet" href="../css/style.css">
+<body>
+    <div class="box_scales">
+        {%- if rd[0] >= 1 %}
+            <div class="scales_set">
+                <h3 class="set_title">{{title}}(デザイン)</h3>
+                <div class="set_data">
+                    <div class="data_label">
+                        <p class="label_id">ID</p>
+                        <p class="label_permit">掲載許可</p>
+                        <p class="label_text">回答</p>
+                    </div>
+                    {%- for mat in item %}
+                        {%- if mat['KEY'] == 101 %}
+                            <div class="data_case">
+                                <p class="case_id">{{mat['ID']}}</p>
+                                {%- if mat['PERMIT'] == 1 %}
+                                    <p class="case_permit">☓</p>
+                                {%- else %}
+                                    <p class="case_permit">◯</p>
+                                {%- endif %}
+                                <p class="case_text">{{mat['VALUE']}}</p>
+                            </div>
+                        {%- endif %}
+                    {%- endfor %}
+                </div>
+            </div>
+        {%- endif %}
+        {%- if rd[1] >= 1 %}
+            <div class="scales_set">
+                <h3 class="set_title">{{title}}(インテリア)</h3>
+                <div class="set_data">
+                    <div class="data_label">
+                        <p class="label_id">ID</p>
+                        <p class="label_permit">掲載許可</p>
+                        <p class="label_text">回答</p>
+                    </div>
+                    {%- for mat in item %}
+                        {%- if mat['KEY'] == 102 %}
+                            <div class="data_case">
+                                <p class="case_id">{{mat['ID']}}</p>
+                                {%- if mat['PERMIT'] == 1 %}
+                                    <p class="case_permit">☓</p>
+                                {%- else %}
+                                    <p class="case_permit">◯</p>
+                                {%- endif %}
+                                <p class="case_text">{{mat['VALUE']}}</p>
+                            </div>
+                        {%- endif %}
+                    {%- endfor %}
+                </div>
+            </div>
+        {%- endif %}
+        {%- if rd[2] >= 1 %}
+            <div class="scales_set">
+                <h3 class="set_title">{{title}}(走行性能)</h3>
+                <div class="set_data">
+                    <div class="data_label">
+                        <p class="label_id">ID</p>
+                        <p class="label_permit">掲載許可</p>
+                        <p class="label_text">回答</p>
+                    </div>
+                    {%- for mat in item %}
+                        {%- if mat['KEY'] == 103 %}
+                            <div class="data_case">
+                                <p class="case_id">{{mat['ID']}}</p>
+                                {%- if mat['PERMIT'] == 1 %}
+                                    <p class="case_permit">☓</p>
+                                {%- else %}
+                                    <p class="case_permit">◯</p>
+                                {%- endif %}
+                                <p class="case_text">{{mat['VALUE']}}</p>
+                            </div>
+                        {%- endif %}
+                    {%- endfor %}
+                </div>
+            </div>
+        {%- endif %}
+        {%- if rd[3] >= 1 %}
+            <div class="scales_set">
+                <h3 class="set_title">{{title}}(安全性)</h3>
+                <div class="set_data">
+                    <div class="data_label">
+                        <p class="label_id">ID</p>
+                        <p class="label_permit">掲載許可</p>
+                        <p class="label_text">回答</p>
+                    </div>
+                    {%- for mat in item %}
+                        {%- if mat['KEY'] == 104 %}
+                            <div class="data_case">
+                                <p class="case_id">{{mat['ID']}}</p>
+                                {%- if mat['PERMIT'] == 1 %}
+                                    <p class="case_permit">☓</p>
+                                {%- else %}
+                                    <p class="case_permit">◯</p>
+                                {%- endif %}
+                                <p class="case_text">{{mat['VALUE']}}</p>
+                            </div>
+                        {%- endif %}
+                    {%- endfor %}
+                </div>
+            </div>
+        {%- endif %}
+        {%- if rd[4] >= 1 %}
+            <div class="scales_set">
+                <h3 class="set_title">{{title}}(装備)</h3>
+                <div class="set_data">
+                    <div class="data_label">
+                        <p class="label_id">ID</p>
+                        <p class="label_permit">掲載許可</p>
+                        <p class="label_text">回答</p>
+                    </div>
+                    {%- for mat in item %}
+                        {%- if mat['KEY'] == 105 %}
+                            <div class="data_case">
+                                <p class="case_id">{{mat['ID']}}</p>
+                                {%- if mat['PERMIT'] == 1 %}
+                                    <p class="case_permit">☓</p>
+                                {%- else %}
+                                    <p class="case_permit">◯</p>
+                                {%- endif %}
+                                <p class="case_text">{{mat['VALUE']}}</p>
+                            </div>
+                        {%- endif %}
+                    {%- endfor %}
+                </div>
+            </div>
+        {%- endif %}
+        {%- if rd[5] >= 1 %}
+            <div class="scales_set">
+                <h3 class="set_title">{{title}}(価格)</h3>
+                <div class="set_data">
+                    <div class="data_label">
+                        <p class="label_id">ID</p>
+                        <p class="label_permit">掲載許可</p>
+                        <p class="label_text">回答</p>
+                    </div>
+                    {%- for mat in item %}
+                        {%- if mat['KEY'] == 106 %}
+                            <div class="data_case">
+                                <p class="case_id">{{mat['ID']}}</p>
+                                {%- if mat['PERMIT'] == 1 %}
+                                    <p class="case_permit">☓</p>
+                                {%- else %}
+                                    <p class="case_permit">◯</p>
+                                {%- endif %}
+                                <p class="case_text">{{mat['VALUE']}}</p>
+                            </div>
+                        {%- endif %}
+                    {%- endfor %}
+                </div>
+            </div>
+        {%- endif %}
+        {%- if rd[6] >= 1 %}
+            <div class="scales_set">
+                <h3 class="set_title">{{title}}(サービス)</h3>
+                <div class="set_data">
+                    <div class="data_label">
+                        <p class="label_id">ID</p>
+                        <p class="label_permit">掲載許可</p>
+                        <p class="label_text">回答</p>
+                    </div>
+                    {%- for mat in item %}
+                        {%- if mat['KEY'] == 107 %}
+                            <div class="data_case">
+                                <p class="case_id">{{mat['ID']}}</p>
+                                {%- if mat['PERMIT'] == 1 %}
+                                    <p class="case_permit">☓</p>
+                                {%- else %}
+                                    <p class="case_permit">◯</p>
+                                {%- endif %}
+                                <p class="case_text">{{mat['VALUE']}}</p>
+                            </div>
+                        {%- endif %}
+                    {%- endfor %}
+                </div>
+            </div>
+        {%- endif %}
+        {%- if rd[7] >= 1 %}
+            <div class="scales_set">
+                <h3 class="set_title">{{title}}(その他)</h3>
+                <div class="set_data">
+                    <div class="data_label">
+                        <p class="label_id">ID</p>
+                        <p class="label_permit">掲載許可</p>
+                        <p class="label_text">回答</p>
+                    </div>
+                    {%- for mat in item %}
+                        {%- if mat['KEY'] == 108 %}
+                            <div class="data_case">
+                                <p class="case_id">{{mat['ID']}}</p>
+                                {%- if mat['PERMIT'] == 1 %}
+                                    <p class="case_permit">☓</p>
+                                {%- else %}
+                                    <p class="case_permit">◯</p>
+                                {%- endif %}
+                                <p class="case_text">{{mat['VALUE']}}</p>
+                            </div>
+                        {%- endif %}
+                    {%- endfor %}
+                </div>
+            </div>
+        {%- endif %}
+    </div>
+</body>
+</html>
