@@ -122,8 +122,10 @@ def male_female(select):
     # 値データの挿入。挿入順はx_label（逆順）に合わせる
     y = []
     # select_dataのvalueの値を逆順にして、yのlistに挿入する
-    for s_ins in reversed(select_data.values()):
+    for s_ins,dummy in sorted(select_data.items(),key=lambda x: x[1]):
         y.append(s_ins)
+    # for s_ins in reversed(select_data.values()):
+    #     y.append(s_ins)
 
     # １行１列のグラフの描画
     nrow = 1
